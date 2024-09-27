@@ -1,4 +1,4 @@
-package com.example.model
+package com.overdrive.model
 
 import kotlinx.serialization.Serializable
 
@@ -8,7 +8,7 @@ enum class BookingStatus {
 
 @Serializable
 data class Booking(
-    override val id: String,
+    val id: String,
     val parkingSpotId: String,
     val userId: String,
     val startTime: String,
@@ -16,4 +16,4 @@ data class Booking(
     val totalPrice: Double,
     val bookingStatus: BookingStatus,
     val vehicleLicensePlate: String? = null
-): Item()
+)

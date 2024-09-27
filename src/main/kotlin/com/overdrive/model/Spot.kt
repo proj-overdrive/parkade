@@ -1,12 +1,12 @@
-package com.example.model
+package com.overdrive.model
 
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class Spot(
-    override val id: String,
+    val id: String,
     val ownerId: String,
     val address: String,
     val latitude: Double,
     val longitude: Double,
-): Item()
+)
