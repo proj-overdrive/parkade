@@ -1,4 +1,4 @@
-package com.example.model
+package com.overdrive.model
 
 data class Vehicle(
     val licensePlate: String,
