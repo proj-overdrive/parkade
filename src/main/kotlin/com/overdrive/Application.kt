@@ -1,6 +1,7 @@
 package com.overdrive
 
 import com.overdrive.plugins.*
+import com.overdrive.repos.PostgresBookingRepository
 import com.overdrive.repos.PostgresSpotRepository
 import io.ktor.server.application.*
 
@@ -10,8 +11,9 @@ fun main(args: Array<String>) {
 
 fun Application.module() {
     val spotRepository = PostgresSpotRepository()
+    val bookingRepository = PostgresBookingRepository()
 
-    configureSpotSerialization(spotRepository)
+    configureSpotSerialization(spotRepository, bookingRepository)
     configureDatabases()
     configureRouting()
 }
