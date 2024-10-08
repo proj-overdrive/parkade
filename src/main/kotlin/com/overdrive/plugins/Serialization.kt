@@ -24,6 +24,20 @@ fun Application.configureSpotSerialization(spotRepository: CrudRepo<Spot>, booki
                 call.respond(spots)
             }
 
+            get("/{spotId}") {
+                val spotId = call.parameters["spotId"]
+                if (spotId == null) {
+                    call.respond(HttpStatusCode.BadRequest)
+                    return@get
+                }
+                val spot = spotRepository.read(spotId)
+                if (spot != null) {
+                    call.respond(spot)
+                } else {
+                    call.respond(HttpStatusCode.NotFound)
+                }
+            }
+
             post {
                 try {
                     val spot = call.receive<Spot>()
