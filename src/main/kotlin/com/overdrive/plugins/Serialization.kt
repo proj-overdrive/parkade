@@ -17,7 +17,16 @@ fun Application.configureSpotSerialization(spotRepository: CrudRepo<Spot>, booki
     install(ContentNegotiation) {
         json()
     }
+
     routing {
+        route("/payment-sheet") {
+            post {
+                // TODO: add a an amount parameter to the request
+                val response = StripePay().pay(6969)
+                call.respond(response)
+            }
+        }
+
         route("/spots") {
             get {
                 val spots = spotRepository.all()
