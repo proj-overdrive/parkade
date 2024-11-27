@@ -3,4 +3,4 @@ ktor:
         modules:
             - com.overdrive.ApplicationKt.module
     deployment:
-        port: 8080
+        port: "$PORT:5000"
